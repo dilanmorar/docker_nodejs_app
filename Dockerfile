@@ -27,8 +27,8 @@ WORKDIR /home/ubuntu/app
 RUN npm install
 
 # Reconfigure nginx reverse proxy from default configurations
-# RUN rm /etc/nginx/sites-enabled/default
-# COPY environment/app/default /etc/nginx/sites-enabled/default
+RUN rm /etc/nginx/sites-enabled/default
+COPY environment/app/default /etc/nginx/sites-enabled/default
 
 # start/enable nginx (enable lets it auto-start at boot time) NOTE: Docker images do not save running processes so this DOESN'T WORK
 # RUN service nginx start
