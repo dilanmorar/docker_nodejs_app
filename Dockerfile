@@ -31,7 +31,7 @@ RUN rm /etc/nginx/sites-enabled/default
 COPY environment/app/default /etc/nginx/sites-enabled/default
 
 # specify ports
-EXPOSE 3000 80
+# EXPOSE 3000 80
 
 # start nginx and app when run container
 CMD service nginx start
