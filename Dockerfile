@@ -24,15 +24,34 @@ RUN npm install pm2 -g
 # go to directory to /home/ubuntu/app
 WORKDIR /home/ubuntu/app
 
-RUN npm install
+RUN npm install -y
+
+RUN npm i nyc
+
+RUN npm install express --save
+
+RUN npm install mongoose -y
+
+RUN npm install ejs -y
+
+RUN npm install faker --save
+
+RUN node seeds/seed.js
 
 # nginx reverse proxy
 RUN rm /etc/nginx/sites-enabled/default
 COPY environment/app/default /etc/nginx/sites-enabled/default
 
 # specify ports
-# EXPOSE 3000 80
+EXPOSE 3000 80
 
 # start nginx and app when run container
 CMD service nginx start
+
+# RUN npm install ejs mongoose express
+
+RUN export DB_HOST=mongodb://mongo:27017/posts
+
+RUN node seeds/seed.js
+
 CMD node app.js
