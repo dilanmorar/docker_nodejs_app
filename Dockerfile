@@ -54,4 +54,4 @@ RUN export DB_HOST=mongodb://mongo:27017/posts
 
 RUN node seeds/seed.js
 
-CMD node app.js
+RUN node app.js
