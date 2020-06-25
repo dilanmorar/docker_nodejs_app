@@ -25,7 +25,7 @@ RUN npm install pm2 -g
 WORKDIR /home/ubuntu/app
 
 RUN npm install -y
-
+ 
 RUN npm i nyc
 
 RUN npm install express --save
